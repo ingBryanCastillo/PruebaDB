@@ -7,6 +7,7 @@ package Modelos;
 
 //import com.sun.jdi.connect.spi.Connection;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +23,10 @@ public class PersonaModel {
         this.apellidos = apellidos;
         this.nombre = nombre;
         this.telefono = telefono;
+    }
+
+    public PersonaModel() {
+        
     }
 
     public String getApellidos() {
@@ -49,12 +54,17 @@ public class PersonaModel {
     }
     
     public void GuardarPerona(){
-        /*try{
+       try
+       {
             Conexion nuevaConexion = new Conexion();
             this.myConexion = nuevaConexion.Conectar(nombre, nombre);
             Statement sentencia = myConexion.createStatement();
-            sentencia.execute("Insert into Persona values()");
-        }*/
+            sentencia.execute("Insert into Persona values('"+this.getApellidos()+"','"+this.getNombre()+"','"+this.getTelefono()+"')");
+        }
+       catch(SQLException e)
+       {
+           JOptionPane.showMessageDialog(null, "ERROR AL INSERTAR REGISTRO..."+e.getMessage());
+       }
     }
     
 }

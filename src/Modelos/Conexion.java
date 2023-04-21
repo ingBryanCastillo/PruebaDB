@@ -22,9 +22,9 @@ public class Conexion {
         {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             
-            String servidor = "192.168.1.137";
+            String servidor = "168.234.74.80";
             String numero_puerto = "1521";
-            String sid = "xe";
+            String sid = "umg";
             String url = "jdbc:oracle:thin:@"+servidor+":"+numero_puerto+":"+sid;
             
             
@@ -35,7 +35,7 @@ public class Conexion {
         }
         catch(SQLException e){
             System.out.println(e);
-            JOptionPane.showMessageDialog(null, "No se conecto tio.."+e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se conecto..."+e.getMessage());
             return conexion;
         }
     }
